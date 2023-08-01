@@ -1,3 +1,3 @@
-module github.com/NikPim/DeckOfCardAPI
+module deck
 
 go 1.20
