@@ -106,15 +106,16 @@ func (c Card) String() string {
 
 type Deck []Card
 
-func NewDeck(options ...func(Deck) Deck) Deck {
+func NewDeck(shuffled bool) Deck {
 	var d Deck
 	for _, suit := range suits{
 		for rank := min_rank; rank <= max_rank; rank++{
 			d = append(d, Card{Suit: suit, Rank: rank})
 		}
 	}
-	for _, option := range options{
-		d = option(d)
+
+	if shuffled {
+		d.Shuffle()
 	}
 	return d
 }
